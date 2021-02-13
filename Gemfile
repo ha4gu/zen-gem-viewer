@@ -17,6 +17,14 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
   gem "web-console"
+
+  # RuboCop系
+  gem "rubocop", require: false
+  gem "rubocop-ast", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+  gem "standard", require: false
 end
 
 group :development, :test do
