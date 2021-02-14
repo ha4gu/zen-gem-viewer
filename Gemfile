@@ -37,3 +37,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
 end
+
+group :test do
+  gem "shoulda-matchers"
+end
