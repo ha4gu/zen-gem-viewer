@@ -44,6 +44,10 @@ module ZenGemViewer
       g.helper_specs false
       g.request_specs false
       g.system_specs false
+
+      # FactoryBot
+      g.fixture_replacement :factory_bot
+      g.factory_bot dir: "spec/factories", suffix: "factory"
     end
   end
 end
