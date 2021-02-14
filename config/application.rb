@@ -32,7 +32,18 @@ module ZenGemViewer
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      # RSpec
+      g.test_framework :rspec
+
+      g.mailer_specs true
+      g.model_specs true
+
+      g.controller_specs false
+      g.feature_specs false
+      g.helper_specs false
+      g.request_specs false
+      g.system_specs false
+    end
   end
 end
