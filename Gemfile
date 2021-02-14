@@ -7,6 +7,7 @@ gem "bootsnap", require: false
 gem "jbuilder", "~> 2.7"
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.2"
+gem "rails-i18n"
 gem "sass-rails"
 gem "sqlite3", "~> 1.4"
 gem "turbolinks", "~> 5"
