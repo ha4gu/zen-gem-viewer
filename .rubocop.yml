@@ -1,2 +1,10 @@
 inherit_from:
   - https://raw.githubusercontent.com/ha4gu/rubocop-rules/main/.rubocop.yml
+
+Layout/HashAlignment:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
+
+Rails/RakeEnvironment:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
