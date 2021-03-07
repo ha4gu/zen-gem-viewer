@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_125518) do
+ActiveRecord::Schema.define(version: 2021_02_21_145031) do
 
   create_table "hosting_accounts", force: :cascade do |t|
     t.string "type", null: false
@@ -24,4 +24,15 @@ ActiveRecord::Schema.define(version: 2021_02_21_125518) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "repositories", force: :cascade do |t|
+    t.integer "hosting_account_id", null: false
+    t.string "uuid", null: false
+    t.string "name", null: false
+    t.string "custom_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hosting_account_id"], name: "index_repositories_on_hosting_account_id"
+  end
+
+  add_foreign_key "repositories", "hosting_accounts"
 end

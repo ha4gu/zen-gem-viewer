@@ -1,4 +1,6 @@
 class HostingAccount < ApplicationRecord
+  has_many :repositories, class_name: "Repository", dependent: :destroy
+
   validates :type, presence: true
 end
 

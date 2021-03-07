@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe HostingAccount, type: :model do
+  it { is_expected.to have_many(:repositories).class_name("Repository").dependent(:destroy) }
+
   it { is_expected.to validate_presence_of(:type) }
 end
 
