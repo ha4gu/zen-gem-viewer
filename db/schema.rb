@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_131836) do
+ActiveRecord::Schema.define(version: 2021_03_07_134854) do
+
+  create_table "gem_versions", force: :cascade do |t|
+    t.integer "lock_file_id", null: false
+    t.integer "ruby_gem_id", null: false
+    t.text "version", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lock_file_id"], name: "index_gem_versions_on_lock_file_id"
+    t.index ["ruby_gem_id"], name: "index_gem_versions_on_ruby_gem_id"
+  end
 
   create_table "hosting_accounts", force: :cascade do |t|
     t.string "type", null: false
@@ -56,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_03_07_131836) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "gem_versions", "lock_files"
+  add_foreign_key "gem_versions", "ruby_gems"
   add_foreign_key "lock_files", "repositories"
   add_foreign_key "repositories", "hosting_accounts"
 end

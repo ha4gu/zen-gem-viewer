@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe LockFile, type: :model do
   it { is_expected.to belong_to(:repository) }
+  it { is_expected.to have_many(:gem_versions).class_name("GemVersion").dependent(:destroy) }
 
   it { is_expected.to validate_presence_of(:path) }
 end

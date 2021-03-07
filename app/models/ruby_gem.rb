@@ -1,4 +1,6 @@
 class RubyGem < ApplicationRecord
+  has_many :gem_versions, class_name: "GemVersion", dependent: :destroy
+
   validates :name, :rubygems_org_url, :latest_version, :timestamp, presence: true
 end
 

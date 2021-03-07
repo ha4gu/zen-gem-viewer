@@ -1,5 +1,6 @@
 class LockFile < ApplicationRecord
   belongs_to :repository
+  has_many :gem_versions, class_name: "GemVersion", dependent: :destroy
 
   validates :path, presence: true
 end
