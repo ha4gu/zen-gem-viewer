@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_083400) do
+ActiveRecord::Schema.define(version: 2021_03_07_131836) do
 
   create_table "hosting_accounts", force: :cascade do |t|
     t.string "type", null: false
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2021_03_07_083400) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hosting_account_id"], name: "index_repositories_on_hosting_account_id"
+  end
+
+  create_table "ruby_gems", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "rubygems_org_url", null: false
+    t.text "official_url"
+    t.text "source_code_url"
+    t.text "latest_version", null: false
+    t.datetime "timestamp", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "lock_files", "repositories"
