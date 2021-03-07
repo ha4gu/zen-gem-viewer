@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_145031) do
+ActiveRecord::Schema.define(version: 2021_03_07_083400) do
 
   create_table "hosting_accounts", force: :cascade do |t|
     t.string "type", null: false
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 2021_02_21_145031) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "lock_files", force: :cascade do |t|
+    t.integer "repository_id", null: false
+    t.string "path", null: false
+    t.text "content"
+    t.string "custom_name"
+    t.datetime "timestamp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repository_id"], name: "index_lock_files_on_repository_id"
+  end
+
   create_table "repositories", force: :cascade do |t|
     t.integer "hosting_account_id", null: false
     t.string "uuid", null: false
@@ -34,5 +45,6 @@ ActiveRecord::Schema.define(version: 2021_02_21_145031) do
     t.index ["hosting_account_id"], name: "index_repositories_on_hosting_account_id"
   end
 
+  add_foreign_key "lock_files", "repositories"
   add_foreign_key "repositories", "hosting_accounts"
 end

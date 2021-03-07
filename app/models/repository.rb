@@ -1,5 +1,6 @@
 class Repository < ApplicationRecord
   belongs_to :hosting_account
+  has_many :lock_files, class_name: "LockFile", dependent: :destroy
 
   validates :uuid, :name, presence: true
 end

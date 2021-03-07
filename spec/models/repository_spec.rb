@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Repository, type: :model do
   it { is_expected.to belong_to(:hosting_account) }
+  it { is_expected.to have_many(:lock_files).class_name("LockFile").dependent(:destroy) }
 
   it { is_expected.to validate_presence_of(:uuid) }
   it { is_expected.to validate_presence_of(:name) }
