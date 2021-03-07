@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_134854) do
+ActiveRecord::Schema.define(version: 2021_03_07_144048) do
 
   create_table "gem_versions", force: :cascade do |t|
     t.integer "lock_file_id", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_134854) do
     t.string "custom_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "main_branch", null: false
     t.index ["hosting_account_id"], name: "index_repositories_on_hosting_account_id"
   end
 

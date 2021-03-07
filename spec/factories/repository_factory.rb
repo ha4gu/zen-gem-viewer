@@ -5,6 +5,7 @@ FactoryBot.define do
     hosting_account
     uuid { Faker::Internet.uuid }
     name { Faker::Internet.slug }
+    main_branch { %w[master main].sample }
   end
 end
 
@@ -14,6 +15,7 @@ end
 #
 #  id                 :integer          not null, primary key
 #  custom_name        :string
+#  main_branch        :string           not null
 #  name               :string           not null
 #  uuid               :string           not null
 #  created_at         :datetime         not null

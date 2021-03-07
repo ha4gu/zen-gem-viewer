@@ -6,6 +6,7 @@ RSpec.describe Repository, type: :model do
 
   it { is_expected.to validate_presence_of(:uuid) }
   it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:main_branch) }
 end
 
 # == Schema Information
@@ -14,6 +15,7 @@ end
 #
 #  id                 :integer          not null, primary key
 #  custom_name        :string
+#  main_branch        :string           not null
 #  name               :string           not null
 #  uuid               :string           not null
 #  created_at         :datetime         not null
